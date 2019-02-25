@@ -2,8 +2,6 @@
 
 namespace Imputer;
 
-use Imputer\Strategies\Strategy;
-
 /**
  * Class Imputer
  */

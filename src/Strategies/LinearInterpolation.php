@@ -2,6 +2,8 @@
 
 namespace Imputer\Strategies;
 
+use Imputer\Strategy;
+
 /**
  * Class LinearInterpolation
  *
@@ -16,12 +18,14 @@ class LinearInterpolation implements Strategy
     /**
      * @param $previousValue
      * @param $nextValue
-     * @param $numSteps
+     * @param array $keys
      *
-     * @return array|mixed
+     * @return array
      */
-    public function generate($previousValue, $nextValue, $numSteps): array
+    public function generate($previousValue, $nextValue, array $keys): array
     {
+        $numSteps = count($keys);
+
         return $this->linearInterpolate($previousValue, $nextValue, $numSteps);
     }
 

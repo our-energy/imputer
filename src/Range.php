@@ -2,8 +2,6 @@
 
 namespace Imputer;
 
-use Imputer\Strategies\Strategy;
-
 /**
  * Class Range
  *
@@ -63,7 +61,7 @@ class Range
         $newValues = $this->strategy->generate(
             $this->previousValue,
             $this->nextValue,
-            $this->numSteps
+            $this->keyList
         );
 
         $result = [];

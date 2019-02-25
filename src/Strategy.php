@@ -1,6 +1,6 @@
 <?php
 
-namespace Imputer\Strategies;
+namespace Imputer;
 
 /**
  * Interface Strategy
@@ -12,9 +12,9 @@ interface Strategy
     /**
      * @param $previousValue
      * @param $nextValue
-     * @param $numSteps
+     * @param array $keys
      *
-     * @return mixed
+     * @return array
      */
-    public function generate($previousValue, $nextValue, $numSteps): array;
+    public function generate($previousValue, $nextValue, array $keys): array;
 }
