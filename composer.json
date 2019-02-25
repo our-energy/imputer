@@ -1,5 +1,5 @@
 {
-    "name": "our-energy/imputer",
+    "name": "ourenergy/imputer",
     "description": "A library for filling in missing data",
     "type": "library",
     "require-dev": {
