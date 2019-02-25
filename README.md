@@ -81,7 +81,7 @@ e.g. 3 steps between 1.0 and 3.0 will create `[1.5, 2.0, 2.5]`
 
 ### Substitution
 
-The `Substitution` class will take an existing set of values and use them to fill in any gaps.
+The `Substitution` strategy will take an existing set of values and use them to fill in any gaps.
 
 ```php
 $keys = range(0, 5);

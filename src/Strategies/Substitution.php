@@ -19,13 +19,20 @@ class Substitution implements Strategy
     protected $substitutes;
 
     /**
+     * @var
+     */
+    protected $defaultValue;
+
+    /**
      * Substitution constructor.
      *
      * @param array $substitutes
+     * @param null $defaultValue
      */
-    public function __construct(array $substitutes)
+    public function __construct(array $substitutes, $defaultValue = null)
     {
         $this->substitutes = $substitutes;
+        $this->defaultValue = $defaultValue;
     }
 
     /**
@@ -42,6 +49,8 @@ class Substitution implements Strategy
         foreach ($keys as $index => $key) {
             if (isset($this->substitutes[$key])) {
                 $result[$index] = $this->substitutes[$key];
+            } else {
+                $result[$index] = $this->defaultValue;
             }
         }
 

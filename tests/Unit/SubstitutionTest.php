@@ -71,4 +71,35 @@ class SubstitutionTest extends TestCase
 
         $this->assertEquals($expected, $result);
     }
+
+    public function testDefaultValue()
+    {
+        $keys = range(0, 5);
+
+        $knownData = [
+            0 => 10,
+            2 => 30,
+            5 => 60
+        ];
+
+        $expected = [
+            0 => 10,
+            1 => 'x',
+            2 => 30,
+            3 => 'b',
+            4 => 'x',
+            5 => 60
+        ];
+
+        $substitutes = [
+            3 => 'b'
+        ];
+
+        $strategy = new Substitution($substitutes, 'x');
+        $imputer = new Imputer($keys, $knownData, $strategy);
+
+        $result = $imputer->generate();
+
+        $this->assertEquals($expected, $result);
+    }
 }

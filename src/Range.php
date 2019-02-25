@@ -68,7 +68,9 @@ class Range
 
         // Map the new values into the existing data
         foreach ($this->keyList as $index => $key) {
-            $result[$key] = $newValues[$index];
+            if (array_key_exists($index, $newValues)) {
+                $result[$key] = $newValues[$index];
+            }
         }
 
         return $result;
