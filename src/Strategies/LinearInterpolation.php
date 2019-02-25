@@ -36,7 +36,7 @@ class LinearInterpolation implements Strategy
      *
      * @return array
      */
-    private function linearInterpolate($previousValue, $nextValue, $numSteps): array
+    protected function linearInterpolate($previousValue, $nextValue, $numSteps): array
     {
         $stepValue = ($nextValue - $previousValue) / ($numSteps + 1);
 

@@ -18,6 +18,11 @@ class SubstitutionTest extends TestCase
             5 => 60
         ];
 
+        $substitutes = [
+            1 => 'a',
+            3 => 'b'
+        ];
+
         $expected = [
             0 => 10,
             1 => 'a',
@@ -25,11 +30,6 @@ class SubstitutionTest extends TestCase
             3 => 'b',
             4 => null,
             5 => 60
-        ];
-
-        $substitutes = [
-            1 => 'a',
-            3 => 'b'
         ];
 
         $strategy = new Substitution($substitutes);
@@ -50,6 +50,11 @@ class SubstitutionTest extends TestCase
             5 => 60
         ];
 
+        $substitutes = [
+            10 => 'a',
+            30 => 'b'
+        ];
+
         $expected = [
             0 => 10,
             1 => null,
@@ -57,11 +62,6 @@ class SubstitutionTest extends TestCase
             3 => null,
             4 => null,
             5 => 60
-        ];
-
-        $substitutes = [
-            10 => 'a',
-            30 => 'b'
         ];
 
         $strategy = new Substitution($substitutes);
@@ -82,6 +82,10 @@ class SubstitutionTest extends TestCase
             5 => 60
         ];
 
+        $substitutes = [
+            3 => 'b'
+        ];
+
         $expected = [
             0 => 10,
             1 => 'x',
@@ -89,10 +93,6 @@ class SubstitutionTest extends TestCase
             3 => 'b',
             4 => 'x',
             5 => 60
-        ];
-
-        $substitutes = [
-            3 => 'b'
         ];
 
         $strategy = new Substitution($substitutes, 'x');

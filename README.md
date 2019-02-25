@@ -70,7 +70,7 @@ Array
 ## Strategies
 
 Out of the box Imputer provides a few basic strategies. You can write your own by implementing the `Imputer\Strategy`
-interface. 
+interface.
 
 ### Linear Interpolation
 
@@ -78,6 +78,47 @@ As described above, the `LinearInterpolation` strategy will generate a number of
 known values.
 
 e.g. 3 steps between 1.0 and 3.0 will create `[1.5, 2.0, 2.5]`
+
+### Weighted Interpolation
+
+Similar to the `LinearInterpolation` strategy, it will interpolate missing values, but with the added capability of 
+applying a weight to each result. This can be useful for applying historical trends to computed data or when you don't
+want a straight line between points on your graph.
+
+```php
+$keys = range(0, 5);
+
+$knownData = [
+    0 => 10,
+    2 => 30,
+    5 => 60
+];
+
+$weights = [
+    1 => 1,
+    3 => 0.7,
+    4 => 0.5
+];
+
+$strategy = new WeightedInterpolation($weights);
+$imputer = new Imputer($keys, $knownData, $strategy);
+
+$result = $imputer->generate();
+```
+
+Will result in the following;
+
+```
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 28
+    [4] => 25
+    [5] => 60
+)
+```
 
 ### Substitution
 
