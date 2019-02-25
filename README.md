@@ -97,7 +97,7 @@ $substitutes = [
     3 => 'b'
 ];
 
-$strategy = new Substitution($substitutes);
+$strategy = new Substitution($substitutes, 'x');
 $imputer = new Imputer($keys, $knownData, $strategy);
 
 $result = $imputer->generate();
@@ -112,7 +112,7 @@ Array
     [1] => a
     [2] => 30
     [3] => b
-    [4] => 
+    [4] => x
     [5] => 60
 )
 ```
